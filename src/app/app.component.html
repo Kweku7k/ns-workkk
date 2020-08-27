@@ -1,0 +1,14 @@
+<RadSideDrawer #sideDrawer>
+  <FlexboxLayout
+    tkDrawerContent
+    class="drawer-container"
+    nsRouterLink="/"
+    [clearHistory]="true"
+    (tap)="onLogout()"
+  >
+    <Button text="LogOut"></Button>
+  </FlexboxLayout>
+  <StackLayout tkMainContent>
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</RadSideDrawer>

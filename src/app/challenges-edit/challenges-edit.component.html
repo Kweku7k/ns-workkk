@@ -1,0 +1,24 @@
+<ns-action-bar title="Current Challenge">
+  <ActionItem>
+    <Label text="Replace"
+    nsRouterLink="/challenges/replace"
+    android.position="actionBar"
+    ios.position="right"
+    ></Label>
+  </ActionItem>
+
+  <ActionItem>
+    <Label text="Edit"
+    nsRouterLink="/challenges/edit"
+    android.position="actionBar"
+    ios.position="right"
+    ></Label>
+  </ActionItem>
+
+</ns-action-bar>
+
+<StackLayout>
+  <Label text="The Current Challenge" horizontalAlignment="center"></Label>
+  <Button (tap)="onEdit()" text="Edit"></Button>
+  <Button nsRouterLink="/challenges/replace" text="Replace Challenge"></Button>
+</StackLayout>
