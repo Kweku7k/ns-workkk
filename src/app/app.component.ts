@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef } from "@angular/core";
+import {
+    Component,
+    OnInit,
+    OnDestroy,
+    ViewChild,
+    AfterViewInit,
+    ChangeDetectorRef,
+    ViewContainerRef,
+} from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
@@ -11,39 +19,43 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
     selector: "ns-app",
-    templateUrl: "app.component.html"
+    templateUrl: "app.component.html",
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit{
-@ViewChild(RadSideDrawerComponent,{static:true}) drawerComponent: RadSideDrawerComponent;
-// @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+    @ViewChild(RadSideDrawerComponent, { static: true })
+    drawerComponent: RadSideDrawerComponent;
+    // @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
 
     private drawerSub: Subscription;
     private drawer: RadSideDrawer;
-    constructor( private uiService: UIService, private changeDetectionRef: ChangeDetectorRef){}
+    constructor(
+        private uiService: UIService,
+        private changeDetectionRef: ChangeDetectorRef,
+        private vcRef: ViewContainerRef
+    ) {}
 
-ngOnInit(){
-    this.drawerSub = this.uiService.drawerState.subscribe(()=>{
-    if (this.drawer){
-        this.drawer.toggleDrawerState()
+    ngOnInit() {
+        this.drawerSub = this.uiService.drawerState.subscribe(() => {
+            if (this.drawer) {
+                this.drawer.toggleDrawerState();
+            }
+        });
+        this.uiService.setRootVCRef(this.vcRef);
     }
-});
-}
 
-ngAfterViewInit(){
-    this.drawer = this.drawerComponent.sideDrawer;
-    this.changeDetectionRef.detectChanges();
-}
-
-ngOnDestroy(){
-    // this.uiService.drawerState.unsub
-    if (this.drawerSub){
-        this.drawerSub.unsubscribe();
-
+    ngAfterViewInit() {
+        this.drawer = this.drawerComponent.sideDrawer;
+        this.changeDetectionRef.detectChanges();
     }
-}
 
-onLogout(){
-    this.uiService.toogleDrawer();
-}
+    ngOnDestroy() {
+        // this.uiService.drawerState.unsub
+        if (this.drawerSub) {
+            this.drawerSub.unsubscribe();
+        }
+    }
 
+    onLogout() {
+        this.uiService.toogleDrawer();
+    }
 }

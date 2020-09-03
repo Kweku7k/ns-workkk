@@ -6,15 +6,17 @@ import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angul
 
 import { AppRoutingModule } from "./app.routing.module";
 import { AppComponent } from "./app.component";
-import { CurrentChallengeComponent } from './challenges/current-challenge.component';
-import { ChallengeEditComponent } from './challenges-edit/challenges-edit.component';
+
 import { TestComponent } from './test/test.component';
 import { AuthComponent } from './auth/auth.component';
-import { TodayComponent } from './challenges/today/today.component';
+
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { ActionBarComponent } from "./shared/ui/action-bar/action-bar.component";
-import { ChallengeTabsComponent } from "./challenges/challenge-tabs/challenge-tabs.component"
+
+
 import { RouterModule } from "@angular/router";
+import { DayModalComponent } from "./challenges/day-modal/day-modal.component";
+import { SharedModule } from "./shared/shared.module";
+
 
 @NgModule({
     bootstrap: [
@@ -27,21 +29,22 @@ import { RouterModule } from "@angular/router";
         NativeScriptRouterModule,
         RouterModule,
         AppRoutingModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        SharedModule
+
     ],
     declarations: [
         AppComponent,
-        CurrentChallengeComponent,
-        ChallengeEditComponent,
         TestComponent,
         AuthComponent,
-        TodayComponent,
-        ActionBarComponent,
-        ChallengeTabsComponent
+        DayModalComponent,
 
     ],
     schemas: [
         NO_ERRORS_SCHEMA
+    ],
+    entryComponents: [
+        DayModalComponent
     ]
 })
 export class AppModule { }
