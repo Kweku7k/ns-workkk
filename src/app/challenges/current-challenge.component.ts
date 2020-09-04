@@ -6,7 +6,8 @@ import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
     selector: 'ns-current-challenge',
     moduleId: module.id,
     templateUrl: './current-challenge.component.html',
-    styleUrls:['./current-challenge.component.scss']
+    styleUrls:['./current-challenge.component.scss'],
+    // schema:
 })
 
 export class CurrentChallengeComponent implements OnInit{
