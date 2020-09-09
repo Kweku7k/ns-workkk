@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, NO_ERRORS_SCHEMA} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
 
@@ -6,8 +6,7 @@ import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
     selector: 'ns-current-challenge',
     moduleId: module.id,
     templateUrl: './current-challenge.component.html',
-    styleUrls:['./current-challenge.component.scss'],
-    // schema:
+    styleUrls:['./current-challenge.component.common.scss','./current-challenge.component.scss'],
 })
 
 export class CurrentChallengeComponent implements OnInit{

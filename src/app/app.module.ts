@@ -16,6 +16,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { RouterModule } from "@angular/router";
 import { DayModalComponent } from "./challenges/day-modal/day-modal.component";
 import { SharedModule } from "./shared/shared.module";
+import { ChallengeActionsModule } from "./challenges/challenge-actions/challenges-actions.module";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SharedModule } from "./shared/shared.module";
         RouterModule,
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
-        SharedModule
+        SharedModule,
+        ChallengeActionsModule
 
     ],
     declarations: [
@@ -38,7 +40,6 @@ import { SharedModule } from "./shared/shared.module";
         TestComponent,
         AuthComponent,
         DayModalComponent,
-
     ],
     schemas: [
         NO_ERRORS_SCHEMA

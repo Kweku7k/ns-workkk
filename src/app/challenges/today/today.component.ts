@@ -6,16 +6,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ns-today',
   templateUrl: './today.component.html',
-  styleUrls: ['./today.component.css']
+  styleUrls: ['./today.component.scss']
 })
 export class TodayComponent implements OnInit {
-
-//   constructor(private page:Page) { }
-
-
-
-
   ngOnInit(): void {
+  }
+
+  onActionSelect(action: 'complete' | 'fail' | 'cancel'){
+      console.log(action);
   }
 
 }

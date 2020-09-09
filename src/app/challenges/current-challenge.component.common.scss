@@ -1,0 +1,39 @@
+@import '../../theme/color';
+
+TextField{
+    border-color: purple;
+}
+
+Button{
+    background-color: purple;
+    color: white;
+    border-radius: 20;
+}
+
+Label{
+    padding: 30;
+    font-weight: bold;
+    text-align:center;
+}
+
+.form{
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field{
+    width: 80%;
+
+    .label{
+        font-weight: bold;
+        color: $primary;
+    }
+
+    .input{
+        border-bottom-width: 2;
+        border-color: $primary;
+        width: 100%;
+    }
+}
+

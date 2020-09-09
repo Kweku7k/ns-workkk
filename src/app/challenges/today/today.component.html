@@ -1,6 +1,8 @@
-<ns-action-bar title="Today Challenge">
-    <!-- <ActionItem>
-        <Label text="test"></Label>
-    </ActionItem> -->
-</ns-action-bar>
-<Button pageTransition="slideLeft" text="today works!" class="btn btn-primary" nsRouterLink="/curentChallenge"></Button>
+<ns-action-bar title="Today Challenge"></ns-action-bar>
+<ns-challenge-actions (actionSelect)="onActionSelect($event)" cancelText="Cancel"></ns-challenge-actions>
+<!-- <Button
+pageTransition="slideLeft"
+text="today works!"
+nsRouterLink="/curentChallenge"
+></Button> -->
+
